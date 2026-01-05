@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻管理与订阅系统</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>新闻管理与订阅系统</h1>
+            <nav>
+                <ul>
+                    <li><a href="#news-list" class="active">新闻列表</a></li>
+                    <li><a href="#add-news">添加新闻</a></li>
+                    <li><a href="#subscriptions">我的订阅</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 新闻列表 -->
+        <section id="news-list" class="section active">
+            <h2>新闻列表</h2>
+            <div class="filters">
+                <input type="text" id="search-input" placeholder="搜索新闻...">
+                <select id="topic-filter">
+                    <option value="">所有主题</option>
+                </select>
+            </div>
+            <div id="news-container" class="news-container"></div>
+        </section>
+
+        <!-- 添加新闻 -->
+        <section id="add-news" class="section">
+            <h2>添加新闻</h2>
+            <form id="news-form" class="news-form">
+                <div class="form-group">
+                    <label for="title">标题</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="link">链接</label>
+                    <input type="url" id="link" name="link" required>
+                </div>
+                <div class="form-group">
+                    <label for="hotness">热度</label>
+                    <input type="number" id="hotness" name="hotness" min="0" default="0">
+                </div>
+                <div class="form-group">
+                    <label for="summary">内容概要</label>
+                    <textarea id="summary" name="summary" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="news-topics">主题（用逗号分隔）</label>
+                    <input type="text" id="news-topics" name="topics" placeholder="例如：科技,财经">
+                </div>
+                <button type="submit">添加新闻</button>
+            </form>
+        </section>
+
+        <!-- 我的订阅 -->
+        <section id="subscriptions" class="section">
+            <h2>我的订阅</h2>
+            <div class="subscription-section">
+                <h3>订阅新主题</h3>
+                <select id="available-topics">
+                    <option value="">选择主题</option>
+                </select>
+                <button id="subscribe-btn">订阅</button>
+            </div>
+            <div class="subscription-section">
+                <h3>已订阅主题</h3>
+                <div id="user-subscriptions" class="subscriptions-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 新闻管理与订阅系统</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
